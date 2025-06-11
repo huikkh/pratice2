@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char *argv[]) {
+    int num;
+    cin >> num;
+    
+    int arr[num+1];
+    for(int i = 0;i < num;i++){
+        cin >> arr[i];
+    }
+
+    int n,temp;
+    cin >> n;
+    arr[num]=n;
+
+    for(int i = 0;i < num;i++){
+        for(int j = 0;j < num-i;j++){
+            if (arr[j] > arr[j+1]) {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+
+    for(int i = 0;i < num+1;i++){
+        if(i == num){
+            cout << arr[i];
+        }
+        else{
+            cout << arr[i] << ",";
+        }
+    }
+    cout << endl;
+    
+	return 0;
+}
